@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Sidebar from './components/Content/Sidebar.vue'
-import HomePage from './components/HomePage.vue'
-import Footer from './components/Footer.vue'
+import Header from '@/components/Header.vue'
+import Sidebar from '@/components/Content/Sidebar.vue'
+import HomePage from '@/components/HomePage.vue'
+import Footer from '@/components/Footer.vue'
 
 
 export default {
