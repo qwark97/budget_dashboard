@@ -2,15 +2,14 @@
   <div class="content">
     <Header />
     <Sidebar />
-    <HomePage />
+    <router-view />
     <Footer />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue'
-import Sidebar from '@/components/Content/Sidebar.vue'
-import HomePage from '@/components/HomePage.vue'
+import Sidebar from '@/components/content/Sidebar.vue'
 import Footer from '@/components/Footer.vue'
 
 
@@ -19,7 +18,6 @@ export default {
   components: {
     Header,
     Sidebar,
-    HomePage,
     Footer,
   },
 };
