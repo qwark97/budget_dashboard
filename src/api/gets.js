@@ -6,6 +6,11 @@ async function getCategories() {
 	return await response
 }
 
+async function getMoneyLeft() {
+	let response = makeRequest('/api/assets/money', 'GET')
+	return await response
+}
+
 async function makeRequest(endpoint, method, dataToSend={}) {
 	let url = URL + endpoint
 	let data = {
@@ -25,4 +30,5 @@ async function makeRequest(endpoint, method, dataToSend={}) {
 
 export const api = {
 	getCategories,
+	getMoneyLeft
 };
