@@ -1,10 +1,7 @@
 <template>
   <div class="small-card">
-    <div class="name">
-      {{ name }}
-    </div>
-    <div class="value">
-      {{ value }}
+    <div class="cat-name">
+      {{ category.Name }}
     </div>
   </div>
 </template>
@@ -12,6 +9,7 @@
 <script>
 export default {
   name: "SmallCard",
+  props: ['category']
 };
 </script>
 
