@@ -1,5 +1,5 @@
 <template>
-  <div class="small-card">
+  <div class="cat-card">
     <div class="cat-name">
       {{ category.Name }}
     </div>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "SmallCard",
+  name: "CategoryCard",
   props: ['category']
 };
 </script>
