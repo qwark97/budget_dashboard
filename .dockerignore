@@ -24,3 +24,5 @@ pnpm-debug.log*
 *.sw?
 
 .history
+Dockerfile
+docker-compose.yml
