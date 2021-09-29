@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
+import Header from '@/components/content/Header.vue'
 import Sidebar from '@/components/content/Sidebar.vue'
-import Footer from '@/components/Footer.vue'
+import Footer from '@/components/content/Footer.vue'
 
 
 export default {
