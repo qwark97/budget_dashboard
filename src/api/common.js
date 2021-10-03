@@ -8,7 +8,6 @@ async function makeRequest(endpoint, method, dataToSend={}) {
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: {},
 	}
 	if (method != 'GET') {
 		data.body = JSON.stringify(dataToSend)
