@@ -1,34 +1,17 @@
-const URL = 'http://localhost:9999';
-
+import { commonApi } from './common'
 
 async function getCategories() {
-	let response = makeRequest('/api/categories', 'GET')
+	let response = commonApi.makeRequest('/api/categories', 'GET')
 	return await response
 }
 
 async function getMoneyLeft() {
-	let response = makeRequest('/api/assets/money', 'GET')
+	let response = commonApi.makeRequest('/api/assets/money', 'GET')
 	return await response
 }
 
-async function makeRequest(endpoint, method, dataToSend={}) {
-	let url = URL + endpoint
-	let data = {
-		method: method,
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	}
-	if (method != 'GET') {
-		data.data = dataToSend
-	}
-	const response = await fetch(url, data)
 
-	return response.json()
-}
-
-
-export const api = {
+export const getsApi = {
 	getCategories,
 	getMoneyLeft
 };
