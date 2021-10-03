@@ -1,24 +1,35 @@
 <template>
-  <div class="adding-operation">
-    <div class="input-field">
-      <form>
-        <input
-          class="category-input"
-          type="text"
-          autofocus
-          :placeholder="categoryPlaceholder"
-          v-model="operation.category"
-        />
-        <input class="amount-input" type="number" v-model="operation.amount" />
-        <button type="button" @click="save">{{ addButtonTitle }}</button>
-      </form>
-    </div>
-    <div class="message" v-if="addingHappened">
-      <div v-if="success" class="success">
-        {{ successMsg }}
+  <div class="main">
+    <Loading v-if="loading" />
+    <div class="adding-operation">
+      <div class="input-field">
+        <form>
+          <select v-model="operation.category">
+            <option disabled value="">{{ categoryPlaceholder }}</option>
+            <option v-for="category in categories" :key="category">
+              {{ category.Name }}
+            </option>
+          </select>
+
+          <input
+            class="amount-input"
+            type="number"
+            required="required"
+            min="0.00"
+            max="10000.00"
+            step="0.01"
+            v-model="operation.amount"
+          />
+          <button type="button" @click="save">{{ addButtonTitle }}</button>
+        </form>
       </div>
-      <div v-else class="fail">
-        {{ failMsg }}
+      <div class="message" v-if="addingHappened">
+        <div v-if="success" class="success">
+          {{ successMsg }}
+        </div>
+        <div v-else class="fail">
+          {{ failMsg }}
+        </div>
       </div>
     </div>
   </div>
@@ -26,18 +37,25 @@
 
 <script>
 import { postsApi } from "@/api/posts";
+import { getsApi } from "@/api/gets";
 import { lang } from "@/descriptions/descriptions";
+import Loading from "@/components/content/Loading.vue";
 
 export default {
   name: "ExpenseAddingPage",
+  components: {
+    Loading,
+  },
   data() {
     return {
       operation: {
         category: "",
-        amount: 0,
+        amount: "0.00",
       },
       success: undefined,
       addingHappened: false,
+      categories: [],
+      loading: true,
     };
   },
   methods: {
@@ -89,8 +107,13 @@ export default {
       setTimeout(() => (this.addingHappened = false), 1500);
       if (this.success) {
         this.operation.category = "";
-        this.operation.amount = 0;
+        this.operation.amount = "0.00";
       }
+    },
+    getCategories: async function () {
+      const categories = await getsApi.getCategories();
+      this.categories = categories;
+      this.loading = false;
     },
   },
   computed: {
@@ -105,7 +128,10 @@ export default {
     },
     categoryPlaceholder() {
       return lang.LANG[this.$chosenLang]["ADD_OPERATION_CATEGORY_PLACEHOLDER"];
-    }
+    },
+  },
+  mounted: async function () {
+    await this.getCategories();
   },
 };
 </script>
