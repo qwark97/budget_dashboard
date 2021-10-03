@@ -24,17 +24,11 @@ export default {
   data: function () {
     return {
       loading: true,
-      categories: [],
       moneyLeft: 0,
       moneyUnit: "PLN",
     };
   },
   methods: {
-    getCategories: async function () {
-      const categories = await getsApi.getCategories();
-      this.categories = categories;
-      this.loading = false;
-    },
     computeMoneyLeft: async function() {
       const moneyLeftObject = await getsApi.getMoneyLeft();
       this.moneyLeft = moneyLeftObject.amount;
@@ -46,8 +40,8 @@ export default {
     },
   },
   mounted: async function () {
-    await this.getCategories();
     await this.computeMoneyLeft();
+    this.loading = false;
   },
 }
 </script>
