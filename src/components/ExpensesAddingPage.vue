@@ -29,7 +29,7 @@ import { postsApi } from "@/api/posts";
 import { lang } from "@/descriptions/descriptions";
 
 export default {
-  name: "ExpenseAdding",
+  name: "ExpenseAddingPage",
   data() {
     return {
       operation: {
