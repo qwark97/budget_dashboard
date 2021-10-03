@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../components/HomePage.vue'
 import ExpenseAddingPage from '../components/ExpensesAddingPage.vue'
+import CategoriesPage from '../components/CategoriesPage.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/add-expense',
     name: 'ExpenseAddingPage',
     component: ExpenseAddingPage
+  },
+  {
+    path: '/categories',
+    name: 'CategoriesPage',
+    component: CategoriesPage
   }
 ]
 

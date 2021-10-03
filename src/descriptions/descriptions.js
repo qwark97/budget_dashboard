@@ -7,6 +7,7 @@ const LANG = {
         "ADD_OPERATION_SUCCESS_MSG": "Dodano wydatek!",
         "ADD_OPERATION_FAIL_MSG": "Coś poszło nie tak!",
         "ADD_OPERATION_CATEGORY_PLACEHOLDER": "Podaj kategorię",
+        "CATEGORIES_PAGE": "Kategorie",
     },
     "ENG": {
         "HOME_PAGE": "Home",
@@ -16,6 +17,7 @@ const LANG = {
         "ADD_OPERATION_SUCCESS_MSG": "Added operation!",
         "ADD_OPERATION_FAIL_MSG": "Something went wrong!",
         "ADD_OPERATION_CATEGORY_PLACEHOLDER": "Set category",
+        "CATEGORIES_PAGE": "Categories",
     }
 }
 

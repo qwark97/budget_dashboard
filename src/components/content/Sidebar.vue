@@ -12,6 +12,11 @@
             {{ addExpenses }}
           </router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/categories">
+            {{ categories }}
+          </router-link>
+        </li>
       </ul>
     </div>
   </div>
@@ -28,6 +33,9 @@ export default {
     },
     addExpenses() {
       return lang.LANG[this.$chosenLang]["ADD_EXPENSES_PAGE"];
+    },
+    categories() {
+      return lang.LANG[this.$chosenLang]["CATEGORIES_PAGE"];
     }
   },
 };
