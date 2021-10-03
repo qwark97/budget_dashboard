@@ -12,7 +12,7 @@
 <script>
 import SmallCard from '@/components/content/cards/SmallCard.vue'
 import Loading from '@/components/content/Loading.vue'
-import { api } from "@/api/gets";
+import { getsApi } from "@/api/gets";
 import { lang } from "@/descriptions/descriptions";
 
 export default {
@@ -27,23 +27,22 @@ export default {
       categories: [],
       moneyLeft: 0,
       moneyUnit: "PLN",
-      chosenLang: "PL",
     };
   },
   methods: {
     getCategories: async function () {
-      const categories = await api.getCategories();
+      const categories = await getsApi.getCategories();
       this.categories = categories;
       this.loading = false;
     },
     computeMoneyLeft: async function() {
-      const moneyLeftObject = await api.getMoneyLeft();
+      const moneyLeftObject = await getsApi.getMoneyLeft();
       this.moneyLeft = moneyLeftObject.amount;
     }
   },
   computed: {
     leftMoneyCardTitle() {
-      return lang.LANG[this.chosenLang]['ALL_FREE_MONEY']
+      return lang.LANG[this.$chosenLang]['ALL_FREE_MONEY']
     },
   },
   mounted: async function () {
@@ -55,5 +54,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
 </style>
